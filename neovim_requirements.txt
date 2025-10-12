@@ -1,0 +1,33 @@
+---EXTERNAL DEPENDENCIES---
+
+npm                     | For formaters,
+fd                      | *(optional) For faster search with telescope, 
+ripgrep                 | *(optional) Also for search with telescope,
+cargo                   | For Rust support,
+rust-analyzer           | Rust LSP,
+rustc                   | Rust compilier,
+clang                   | C/C++ LSP,
+python3                 | Python3 support,
+python                  | Python support,
+pip                     | Python package manager,
+lua                     | Lua support(for configs),
+lazygit                 | *(optional) For git support inside Neovim, 
+luarocks                | Lua stuff(idk what is this :) ),
+cmake                   | Cmake(Projects for C/C++),
+node                    | For npm,
+
+---NPM DEPENDENCIES---
+
+stylua                  | Lua formatter,
+rustfmt                 | Rust formatter
+clangd                  | C/C++ formatter,
+black                   | Python formatter,
+pyright                 | Python formatter(Another one),
+nvim-treesitter         | Parser,
+
+---INTERNAL MASON DEPENDENCIES---
+
+codelldb                | Debugger for C/C++, Rust,
+lua-language-server     | Lua LSP, 
+
+Idk are that all dependencies or no.
