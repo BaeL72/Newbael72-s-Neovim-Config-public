@@ -37,7 +37,7 @@ map("n", "<leader>ak", builtin.keymaps, { desc = "Available Keymaps" })
 map("n", "<leader>ld", "<cmd>w | Telescope diagnostics <cr>", { desc = "Diagnostics List" })
 
 --FILE_BROWSER
-map("n", "<leader>ff", ":Telescope file_browser<cr>", { silent = true }, { desc = "Telescope File Browser" })
+map("n", "<leader>n", ":Telescope file_browser<cr>", { silent = true }, { desc = "Telescope File Browser" })
 
 --HOP NVIM
 
