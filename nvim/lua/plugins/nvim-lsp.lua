@@ -1,5 +1,11 @@
 return {
 	{
+		"williamboman/mason.nvim",
+		config = function()
+			require("mason").setup({})
+		end,
+	},
+	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"williamboman/mason.nvim",
@@ -7,22 +13,18 @@ return {
 		},
 		config = function()
 			require("mason-lspconfig").setup({
-				automatic_enable = {
+				automatic_enable = false,
+				--[[ ensure_installed = {
 					"clangd",
-					"cmake",
-					"pyright",
+					"rust_analyzer",
 					"lua_ls",
-					exclude = {
-						"rust_analyzer",
-					},
+					"pyright",
 				},
+				exclude = {
+						"rust_analyzer",
+						"cmake",
+					}, ]]
 			})
-		end,
-	},
-	{
-		"williamboman/mason.nvim",
-		config = function()
-			require("mason").setup({})
 		end,
 	},
 }
