@@ -1,7 +1,6 @@
 local map = vim.keymap.set
 local optsmap = { noremap = true, silent = true, nowait = true }
 local builtin = require("telescope.builtin")
-local gitsigns = require("gitsigns")
 
 --DEFAULT KEYMAPS REWORK
 
@@ -10,16 +9,6 @@ map({ "n", "v" }, "sl", "0", optsmap)
 map({ "n", "v" }, "el", "$", optsmap)
 map({ "n", "v" }, "w", "e", optsmap)
 
-map("n", "<C-h>", "<C-w>h", optsmap)
-map("n", "<C-l>", "<C-w>l", optsmap)
-map("n", "<C-j>", "<C-w>j", optsmap)
-map("n", "<C-k>", "<C-w>k", optsmap)
-
-map("n", "<leader>sk", "<cmd>resize +2<cr>", optsmap, { desc = "Resize +2" })
-map("n", "<leader>sj", "<cmd>resize -2<cr>", optsmap, { desc = "Resize -2" })
-map("n", "<leader>sl", "<cmd>vertical resize -2<cr>", optsmap, { desc = "Vertical Resize -2" })
-map("n", "<leader>sh", "<cmd>vertical resize +2<cr>", optsmap, { desc = "Vertical Resize +2" })
-
 --TELESCOPE KEYMAPS
 
 map("n", "<leader>lg", builtin.live_grep, { desc = "Telescope live grep" })
@@ -27,14 +16,17 @@ map("n", "<leader>bb", builtin.buffers, { desc = "Telescope buffers" })
 map("n", "<leader>ht", builtin.help_tags, { desc = "Telescope help tags" })
 map("n", "<leader>fa", builtin.current_buffer_fuzzy_find, { desc = "Telescope fuzzy find in current buffer" })
 map("n", "<leader>ac", builtin.commands, { desc = "Telescope Commands" })
-map("n", "<leader>gc", builtin.git_commits, { desc = "Git Commits" })
-map("n", "<leader>gB", builtin.git_bcommits, { desc = "Git Bcommits" })
-map("n", "<leader>gb", builtin.git_branches, { desc = "Git Branches" })
-map("n", "<leader>gs", builtin.git_status, { desc = "Git Status" })
-map("n", "<leader>gh", builtin.git_stash, { desc = "Git Stash" })
-map("n", "ts", builtin.treesitter, { desc = "Tree Sitter" })
-map("n", "<leader>ak", builtin.keymaps, { desc = "Available Keymaps" })
-map("n", "<leader>ld", "<cmd>w | Telescope diagnostics <cr>", { desc = "Diagnostics List" })
+map("n", "<leader>gc", builtin.git_commits, { desc = "Telescope Git Commits" })
+map("n", "<leader>gB", builtin.git_bcommits, { desc = "Telescope Git Bcommits" })
+map("n", "<leader>gb", builtin.git_branches, { desc = "Telescope Git Branches" })
+map("n", "<leader>gs", builtin.git_status, { desc = "Telescope Git Status" })
+map("n", "<leader>gh", builtin.git_stash, { desc = "Telescope Git Stash" })
+map("n", "<leader>ts", builtin.treesitter, { desc = "Telescope Tree Sitter" })
+map("n", "<leader>ak", builtin.keymaps, { desc = "Telescope Available Keymaps" })
+map("n", "<leader>ld", "<cmd>w | Telescope diagnostics<cr>", { desc = "Telescope Diagnostics List" })
+map("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
+map("n", "<leader>of", builtin.oldfiles, { desc = "Telescope Old Files" })
+map("n", "<leader>gs", builtin.grep_string, { desc = "Telescope Grep String" })
 
 --FILE_BROWSER
 map("n", "<leader>n", ":Telescope file_browser<cr>", { silent = true }, { desc = "Telescope File Browser" })
@@ -95,8 +87,4 @@ map("n", "<leader>rc", "<cmd>w | RunCode<cr>", { desc = "Run Code" }, { ftforcr 
 local lb = vim.lsp.buf
 
 map({ "n", "v" }, "ca", vim.lsp.buf.code_action, { desc = "Code Actions" })
-map("n", "gd", vim.lsp.buf.definition, { desc = "Go To Definition" })
-map("n", "gi", vim.lsp.buf.implementation, { desc = "Go To Implementation" })
 map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
-map("n", "gt", lb.type_definition, { desc = "Go To Type Definition" })
-map("n", "gr", lb.references, { desc = "References" })

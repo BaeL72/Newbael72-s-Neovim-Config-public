@@ -2,6 +2,7 @@ return {
 	"mrcjkb/rustaceanvim",
 	version = "^6",
 	lazy = false,
+	ft = { "rust" },
 	config = function()
 		vim.g.rustaceanvim = {
 			server = {
@@ -24,7 +25,6 @@ return {
 					},
 				},
 			},
-			dap = {},
 		}
 	end,
 }

@@ -13,13 +13,40 @@ return {
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
 	opts = {
-		keymap = { preset = "super-tab" },
+		keymap = {
+			preset = "none",
+			["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+			["<C-e>"] = { "hide" },
+
+			-- Use C-j and C-k for navigation (instead of C-n and C-p)
+			["<C-j>"] = { "select_next", "fallback" },
+			["<C-k>"] = { "select_prev", "fallback" },
+
+			-- Scroll documentation
+			["<C-d>"] = { "scroll_documentation_down", "fallback" },
+			["<C-u>"] = { "scroll_documentation_up", "fallback" },
+
+			["<Tab>"] = {
+				function(cmp)
+					if cmp.snippet_active() then
+						return cmp.accept()
+					else
+						return cmp.select_and_accept()
+					end
+				end,
+				"snippet_forward",
+				"fallback",
+			},
+			["<S-Tab>"] = { "snippet_backward", "fallback" },
+			-- Enter to accept
+			["<CR>"] = { "accept", "fallback" },
+		},
 		appearance = {
 			nerd_font_variant = "mono",
 			use_nvim_cmp_as_default = false,
 			kind_icons = {
-				Text = "",
-				Method = "",
+				Text = " ",
+				Method = " ",
 			},
 		},
 
@@ -33,7 +60,7 @@ return {
 			accept = { auto_brackets = { enabled = false } },
 		},
 		cmdline = {
-			enabled = false,
+			enabled = true,
 		},
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
